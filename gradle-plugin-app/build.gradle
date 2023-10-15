@@ -13,7 +13,7 @@ plugins {
 
 group = 'org.javacentric'
 version = '0.0.1'
-project.ext.name = 'lightweight-plugin-framework-gradle'
+project.ext.name = 'gradle-plugin-app'
 
 repositories {
     // Use Maven Central for resolving dependencies.
