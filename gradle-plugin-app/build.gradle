@@ -22,7 +22,9 @@ repositories {
 }
 
 dependencies {
-
+    implementation 'ch.qos.logback:logback-classic:1.2.9'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.javacentric.gjerd:common-api:0.0.8-SNAPSHOT'
     implementation 'org.javacentric.gjerd:lightweight-plugin-framework:0.0.8-SNAPSHOT'
 
     // Use JUnit test framework.
