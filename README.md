@@ -4,7 +4,7 @@
 [![License](https://badgen.net/badge/License/Apache&nbsp;2.0/blue)](https://opensource.org/licenses/Apache-2.0)
 
 This is early stage of using https://github.com/gjerd/lightweight-plugin-framework
-in gradle project
+in gradle project. It is not working for the moment.
 
 
 
