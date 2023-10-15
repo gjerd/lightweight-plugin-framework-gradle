@@ -10,5 +10,6 @@ public class YayPlugin implements Plugin {
 
     @Override
     public void unload() {
+        System.out.println("Unloaded Yay plugin!");
     }
 }

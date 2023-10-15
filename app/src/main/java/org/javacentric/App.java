@@ -7,7 +7,7 @@ import ljpf.repository.DirPluginRepository;
 
 public class App {
     public void init() {
-        PluginRepository pluginRepository = new DirPluginRepository("/home/hectic/plugins");
+        PluginRepository pluginRepository = new DirPluginRepository("/home/hectic/spades/plugins");
         PluginManager pluginManager = new DefaultPluginManager(pluginRepository);
 
         pluginManager.load("yay-plugin");
