@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
 
-    implementation 'org.javacentric.gjerd:lightweight-plugin-framework-maven-plugin:0.0.8-SNAPSHOT'
+    implementation 'org.javacentric.gjerd:lightweight-plugin-framework:0.0.8-SNAPSHOT'
 
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'

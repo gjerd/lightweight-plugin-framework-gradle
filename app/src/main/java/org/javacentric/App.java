@@ -1,8 +1,16 @@
 package org.javacentric;
 
+import ljpf.DefaultPluginManager;
+import ljpf.PluginManager;
+import ljpf.PluginRepository;
+import ljpf.repository.DirPluginRepository;
+
 public class App {
     public void init() {
-        System.out.println("Yay");
+        PluginRepository pluginRepository = new DirPluginRepository("/home/hectic/plugins");
+        PluginManager pluginManager = new DefaultPluginManager(pluginRepository);
+
+        pluginManager.load("yay-plugin");
     }
 
     public static void main(String[] args) {
