@@ -1,4 +1,4 @@
-# Lightweight Plugin Framework for Gradle
+# Lightweight Plugin Framework Gradle Usage
 
 ![Release](https://badgen.net/badge/Release/0.0.1-SNAPSHOT/blue)
 [![License](https://badgen.net/badge/License/Apache&nbsp;2.0/blue)](https://opensource.org/licenses/Apache-2.0)
