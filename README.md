@@ -4,9 +4,8 @@
 [![License](https://badgen.net/badge/License/Apache&nbsp;2.0/blue)](https://opensource.org/licenses/Apache-2.0)
 
 This is early stage of using https://github.com/gjerd/lightweight-plugin-framework
-in gradle project. It is not working for the moment.
-
-
+in gradle project. It is not working for the moment. This project
+uses mavenLocal() repository for loading the lightweight-plugin-framework for now.
 
 ## Licence
 Copyright 2023- Arild G. Gjerd
