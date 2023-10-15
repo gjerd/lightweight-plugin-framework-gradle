@@ -9,7 +9,7 @@ in gradle project
 
 
 ## Licence
-Copyright 2017 2023- Arild G. Gjerd
+Copyright 2023- Arild G. Gjerd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
