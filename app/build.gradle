@@ -7,15 +7,20 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
+    id 'idea'
     id 'application'
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
+
+    implementation 'org.javacentric.gjerd:lightweight-plugin-framework-maven-plugin:0.0.8-SNAPSHOT'
+
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
 
