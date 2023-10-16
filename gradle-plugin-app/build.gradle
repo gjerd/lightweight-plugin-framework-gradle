@@ -22,10 +22,15 @@ repositories {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'ch.qos.logback:logback-classic:1.2.9'
     implementation 'org.slf4j:slf4j-api:1.7.25'
     implementation 'org.javacentric.gjerd:common-api:0.0.8-SNAPSHOT'
     implementation 'org.javacentric.gjerd:lightweight-plugin-framework:0.0.8-SNAPSHOT'
+
+    implementation 'org.apache.maven:maven-embedder:3.9.5'
+    //implementation 'org.apache.maven.plugins:maven-invoker-plugin:3.6.0'
 
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
@@ -33,6 +38,16 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:32.1.1-jre'
 }
+
+//def appDestinationDirectory = System.getProperty("user.home") + File.separator +
+//                              project.ext.name + File.separator + "lib"
+
+def appDestinationDirectory = System.getProperty("user.home") +
+        File.separator + "spades" +
+        File.separator + project.ext.name;
+
+def appDestinationLibDirectory = appDestinationDirectory + File.separator + "lib"
+def appDestinationPluginsDirectory = appDestinationDirectory + File.separator + "plugins"
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
@@ -44,4 +59,39 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'org.javacentric.App'
+    mainClass = 'org.javacentric.MavenEmbed'
 }
+
+
+task copyJarsToDestinationDirectory {
+    doLast {
+
+        println appDestinationDirectory
+        println appDestinationPluginsDirectory
+
+        // It looks like alot of dependencies is included
+        // here..? Is it better than we did in maven-plugin? Why do maven-plugin
+        // distribute fewer?
+        copy {
+            from "${buildDir}/libs/${jar.archiveFileName.get()}"
+            into appDestinationLibDirectory
+        }
+
+        copy {
+            from(configurations.compileClasspath)
+            into appDestinationLibDirectory
+        }
+
+        mkdir appDestinationPluginsDirectory
+    }
+
+}
+
+task removeDestinationDirectory {
+    doLast {
+        delete appDestinationDirectory
+    }
+}
+
+build.dependsOn copyJarsToDestinationDirectory
+clean.dependsOn removeDestinationDirectory

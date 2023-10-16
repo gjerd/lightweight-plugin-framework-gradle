@@ -1,4 +1,5 @@
 rootProject.name = 'lightweight-plugin-framework-gradle'
 include 'gradle-plugin-app'
+include 'gradle-plugin-app:first-plugin'
 include 'gradle-plugin-app:yay-plugin'
 

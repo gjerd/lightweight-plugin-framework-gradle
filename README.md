@@ -7,6 +7,8 @@ This is early stage of using https://github.com/gjerd/lightweight-plugin-framewo
 in gradle project. It is not working for the moment. This project
 uses mavenLocal() repository for loading the lightweight-plugin-framework for now.
 
+
+
 ## Licence
 Copyright 2023- Arild G. Gjerd
 

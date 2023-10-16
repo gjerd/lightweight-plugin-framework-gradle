@@ -1,4 +1,4 @@
-id=yay-plugin
+id=YayPlugin
 version=0.0.1
 pluginClass=org.javacentric.yay.YayPlugin
 description=Some test
