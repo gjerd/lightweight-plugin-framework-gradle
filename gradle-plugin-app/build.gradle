@@ -32,6 +32,10 @@ repositories {
     maven { url 'https://repo.gradle.org/gradle/libs-releases'}
 }
 
+//configurations {
+//    implementation.exclude group: 'org.slf4j' // will exclude all transitive dependencies for org.slf4j, or any other specific logger implementation
+//}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

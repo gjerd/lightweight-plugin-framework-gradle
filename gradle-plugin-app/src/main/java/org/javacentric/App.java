@@ -1,7 +1,5 @@
 package org.javacentric;
 
-import ch.qos.logback.classic.joran.JoranConfigurator;
-import ch.qos.logback.core.joran.spi.JoranException;
 import ljpf.PluginClassLoaderFactory;
 import ljpf.PluginManager;
 import ljpf.DefaultPluginManager;
@@ -12,7 +10,7 @@ import ljpf.repository.DirPluginRepository;
 import ljpf.repository.MultiPluginRepository;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.LoggerFactory;
+
 import ch.qos.logback.classic.LoggerContext;
 
 import java.io.File;
