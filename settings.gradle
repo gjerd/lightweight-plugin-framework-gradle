@@ -18,6 +18,6 @@ pluginManagement {
 rootProject.name = 'lightweight-plugin-framework-gradle'
 include 'gradle-plugin-app'
 include 'gradle-plugin-app:fifth-plugin'
-include 'gradle-plugin-app:plugins:fourth-plugin'
+include 'plugins:fourth-plugin'
 
 

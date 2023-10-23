@@ -30,8 +30,6 @@ public class App {
 
     // Relative to user home directory
     String pluginRepository1 = System.getProperty("user.home") +
-            File.separator + "spades" +
-            File.separator + "gradle-plugin-app" +
             File.separator + "plugins";
 
     // Relative to project-directory
@@ -57,6 +55,7 @@ public class App {
         pluginManager.load("FirstPlugin", config);
         pluginManager.load("SecondPlugin", config);
         pluginManager.load("ThirdPlugin", config);
+        pluginManager.load("FourthPlugin", config);
 
         //pluginManager.load("YayPlugin", config);
 
