@@ -1,4 +1,0 @@
-id=FourthPlugin
-version=0.0.8-SNAPSHOT
-pluginClass=org.javacentric.plugin.FourthPlugin
-description=Fourth Example
