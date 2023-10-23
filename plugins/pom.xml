@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>lightweight-plugin-framework-parent</artifactId>
-        <groupId>org.javacentric.gjerd</groupId>
-        <version>0.0.8-SNAPSHOT</version>
-    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>examples</artifactId>
+    <groupId>org.javacentric.gjerd</groupId>
+    <artifactId>plugins</artifactId>
+    <version>0.0.8-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+    </properties>
+
     <modules>
-        <module>fourt-plugin</module>
+        <module>fourth-plugin</module>
     </modules>
 
     <build>
@@ -39,59 +45,9 @@
             </plugin>
 
 
-            <plugin>
-                <groupId>org.javacentric.gjerd</groupId>
-                <artifactId>lightweight-plugin-framework-maven-plugin</artifactId>
-                <version>0.0.8-SNAPSHOT</version>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>make-plugin-repository</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${plugins.dir}</outputDirectory>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.javacentric.gjerd</groupId>
-                                    <artifactId>fourth-plugin</artifactId>
-                                    <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Create assembly output jar using distro-assembly.xml from geonardo-assembly project -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.6.0</version>
-                <executions>
-                    <execution>
-                        <id>create-distribution</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/assembly/distro-assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
 
         </plugins>
-
-
-
-
-
-
-
-
 
     </build>
 

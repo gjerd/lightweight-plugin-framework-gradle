@@ -12,8 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/gradle-plugin-app" />
             <option value="$PROJECT_DIR$/gradle-plugin-app/fifth-plugin" />
-            <option value="$PROJECT_DIR$/plugins" />
-            <option value="$PROJECT_DIR$/plugins/fourth-plugin" />
+            <option value="$PROJECT_DIR$/gradle-plugin-app/plugins" />
+            <option value="$PROJECT_DIR$/gradle-plugin-app/plugins/fourth-plugin" />
           </set>
         </option>
       </GradleProjectSettings>
