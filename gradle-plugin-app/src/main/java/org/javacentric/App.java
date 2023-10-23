@@ -1,5 +1,7 @@
 package org.javacentric;
 
+import ch.qos.logback.classic.joran.JoranConfigurator;
+import ch.qos.logback.core.joran.spi.JoranException;
 import ljpf.PluginClassLoaderFactory;
 import ljpf.PluginManager;
 import ljpf.DefaultPluginManager;
@@ -8,8 +10,10 @@ import ljpf.loader.ParentLastClassLoaderFactory;
 import ljpf.repository.ClasspathPluginRepository;
 import ljpf.repository.DirPluginRepository;
 import ljpf.repository.MultiPluginRepository;
-import org.slf4j.Logger;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.LoggerContext;
 
 import java.io.File;
 
@@ -17,22 +21,26 @@ import java.io.File;
  * Created by souzen on 29.03.2017.
  * Modified to suit my fork of the framework by Arild G. Gjerd
  */
+
+@Slf4j
 public class App {
 
-    private static final Logger LOG = LoggerFactory.getLogger(App.class.getSimpleName());
+    @Getter
+    LoggerContext loggerContext;
 
     private PluginManager pluginManager;
 
     // Relative to user home directory
-    String pluginRepository1 =  System.getProperty("user.home") +
-                                File.separator + "spades" +
-                                File.separator + "gradle-plugin-app" +
-                                File.separator + "plugins";
+    String pluginRepository1 = System.getProperty("user.home") +
+            File.separator + "spades" +
+            File.separator + "gradle-plugin-app" +
+            File.separator + "plugins";
 
     // Relative to project-directory
-    String pluginRepository2 =  "plugins";
+    String pluginRepository2 = "plugins";
 
     public void init() {
+        log.info("Starting...");
 
         new File(pluginRepository2).mkdirs();
 
@@ -47,8 +55,11 @@ public class App {
 
         ExampleConfig config = new ExampleConfig();
         config.setValue("World");
+
+        pluginManager.load("FirstPlugin", config);
         pluginManager.load("SecondPlugin", config);
-        //pluginManager.load("FirstPlugin", config);
+        pluginManager.load("ThirdPlugin", config);
+
         //pluginManager.load("YayPlugin", config);
 
         //pluginManager.load("SecondPlugin", config);
@@ -56,7 +67,7 @@ public class App {
     }
 
     public void shutdown() {
-        LOG.info("Shutting down...");
+        log.info("Shutting down...");
         pluginManager.unloadAll();
     }
 
@@ -65,5 +76,9 @@ public class App {
         app.init();
         app.shutdown();
     }
+
+
+
+
 
 }

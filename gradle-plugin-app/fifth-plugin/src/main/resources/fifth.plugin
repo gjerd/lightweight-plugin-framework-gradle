@@ -1,0 +1,4 @@
+id=FifthPlugin
+version=0.0.1
+pluginClass=org.javacentric.fifth.FifthPlugin
+description=Some test

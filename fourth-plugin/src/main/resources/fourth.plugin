@@ -1,0 +1,4 @@
+id=FourthPlugin
+version=${project.version}
+pluginClass=org.javacentric.plugin.FourthPlugin
+description=Fourth Example

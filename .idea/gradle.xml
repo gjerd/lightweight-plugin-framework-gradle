@@ -4,13 +4,15 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="/usr/local/sdkman/candidates/gradle/current" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/fourth-plugin" />
             <option value="$PROJECT_DIR$/gradle-plugin-app" />
-            <option value="$PROJECT_DIR$/gradle-plugin-app/first-plugin" />
-            <option value="$PROJECT_DIR$/gradle-plugin-app/yay-plugin" />
+            <option value="$PROJECT_DIR$/gradle-plugin-app/fifth-plugin" />
           </set>
         </option>
       </GradleProjectSettings>

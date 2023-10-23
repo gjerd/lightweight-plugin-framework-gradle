@@ -1,8 +1,8 @@
-package org.javacentric.yay;
+package org.javacentric.fifth;
 
 import ljpf.Plugin;
 
-public class YayPlugin implements Plugin {
+public class FifthPlugin implements Plugin {
     @Override
     public void load() {
         System.out.println("Yay it actually loads!");

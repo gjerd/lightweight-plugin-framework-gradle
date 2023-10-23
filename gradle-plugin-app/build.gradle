@@ -9,6 +9,15 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'idea'
     id 'application'
+
+    id 'lightweight-plugin-framework-gradle-plugin' version '0.0.1'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 group = 'org.javacentric'
@@ -19,17 +28,35 @@ repositories {
     // Use Maven Central for resolving dependencies.
     mavenLocal()
     mavenCentral()
+
+    maven { url 'https://repo.gradle.org/gradle/libs-releases'}
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'ch.qos.logback:logback-classic:1.2.9'
-    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation "org.gradle:gradle-tooling-api:${toolingApiVersion}"
+
+      // I hoped that that it was not necessarry to put these in - since they are in the plugin!
+    //implementation 'org.javacentric:lightweight-plugin-framework-gradle-plugin:0.0.1'
     implementation 'org.javacentric.gjerd:common-api:0.0.8-SNAPSHOT'
     implementation 'org.javacentric.gjerd:lightweight-plugin-framework:0.0.8-SNAPSHOT'
 
-    implementation 'org.apache.maven:maven-embedder:3.9.5'
+    implementation ('org.apache.maven:maven-embedder:3.9.5') {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+
+    //------------
+
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    // OF COURSE WE NEED LOMBOK
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+
     //implementation 'org.apache.maven.plugins:maven-invoker-plugin:3.6.0'
 
     // Use JUnit test framework.
@@ -59,7 +86,7 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'org.javacentric.App'
-    mainClass = 'org.javacentric.MavenEmbed'
+    //mainClass = 'org.javacentric.MavenEmbed'
 }
 
 
